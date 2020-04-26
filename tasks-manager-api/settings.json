@@ -1,0 +1,16 @@
+{
+    "free-auth": ["login"],
+    "rest": {
+        "input": "src\\routers",
+        "files": {
+            "get": ["query", "detail", "list"],
+            "post": ["create"],
+            "put": ["update"],
+            "delete": ["delete"]
+        },
+        "params": {
+            "identifier": "@",
+            "separator": ","
+        }
+    }
+}

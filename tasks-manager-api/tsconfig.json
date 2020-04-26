@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "strictNullChecks": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "ES2020",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */
+    "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
+    "strict": true,                           /* Enable all strict type-checking options. */
+    "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "@settings": ["settings.json"],
+      "@database": ["src/database.ts"],
+      "@bases/*": ["src/utils/bases/*"],
+      "@tests/*": ["tests/*"],
+      "@models/*": ["src/models/*"],
+      "@hashing/*": ["src/utils/hashing/*"],
+      "@decorators/*": ["src/utils/decorators/*"],
+      "@validators/*": ["src/utils/validators/*"],
+      "@metadata/*": ["src/utils/metadata/*"],
+      "@enums/*": ["src/utils/enums/*"],
+      "@handlers/*": ["src/utils/handlers/*"],
+      "@interfaces/*": ["src/utils/interfaces/*"],
+      "@results/*": ["src/utils/results/*"],
+      "@routers/*": ["src/utils/routers/*"]
+    }
+  }
+}
