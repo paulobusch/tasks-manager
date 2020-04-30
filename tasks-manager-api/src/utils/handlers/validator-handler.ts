@@ -17,6 +17,8 @@ export class ValidatorHandler {
                         validator: ValidatorType[validator.type],
                         options: validator.serialize()
                     };
+                    console.log(action);
+                    console.log(data);
                     return new ActionResult(EActionStatus.notAllowed, 'Current action is not valid', data);
                 }
             }

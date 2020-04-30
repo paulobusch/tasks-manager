@@ -6,9 +6,14 @@ import { QueryResult } from "@results/action-result";
 import { DecoratorAttribute } from "@decorators/attribute";
 import { Op } from "sequelize";
 import { User } from "@models/users/entities/user";
+import { Validators } from "@metadata/validators";
+import { Property } from "@decorators/property";
 
 export class ListUsers extends Query<QueryPaginated<UserList>> {
+    @Property([Validators.range({ min: 0 })])
     public page: number = 0;
+    
+    @Property([Validators.range({ min: 0, max: 100 })])
     public limit: number = 10;
     public search: string;
 

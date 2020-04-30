@@ -19,6 +19,7 @@ export default class ActionHandler {
         try {
             result = await action.execute(context);
         }catch(err) {
+            if (process.env.APP_ENV !== 'prod') throw err; 
             const actionName = (action as any).constructor.name;
             return new ActionResult(EActionStatus.error, `Error on run action: ${actionName}`);
         }        

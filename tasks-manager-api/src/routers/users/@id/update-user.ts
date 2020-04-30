@@ -11,16 +11,16 @@ export class UpdateUser extends Mutation {
     @Property([Validators.lenght({ length: 8 })])
     public id: string;
 
-    @Property([Validators.required, Validators.lenght({ min: 5, max: 200 })])
+    @Property([Validators.required, Validators.lenght({ max: 200 })])
     public name: string;
     
     @Property([Validators.required, Validators.email])
     public email: string;
     
-    @Property([Validators.required, Validators.lenght({ min: 5, max: 50 })])
+    @Property([Validators.required, Validators.lenght({ max: 50 })])
     public login: string;
 
-    @Property([Validators.required, Validators.lenght({ min: 5, max: 10 })])
+    @Property([Validators.required, Validators.lenght({ max: 10 })])
     public password: string;
 
     async consistent(): Promise<MutationResult> {

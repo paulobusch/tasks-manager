@@ -8,6 +8,7 @@ export class Converter {
                 ins[prop] = obj[prop];
         }
         const attributes = DecoratorAttribute.getAttributes(ins);
+        if (!attributes) return ins;
         for (let attr of attributes) {
             if (obj.hasOwnProperty(attr))
                 ins[attr] = obj[attr];

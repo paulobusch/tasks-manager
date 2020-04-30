@@ -2,6 +2,7 @@ import { Sequelize } from 'sequelize-typescript';
 import { Transaction } from 'sequelize/types';
 import { ActionResult } from '@results/action-result';
 import { EActionStatus } from '@enums/action-status.enum';
+import { User } from '@models/users/entities/user';
 
 const Db = new Sequelize({
         logging: false,
@@ -10,7 +11,7 @@ const Db = new Sequelize({
         username: process.env.DB_USER,
         password: process.env.DB_PASS,
         dialect: 'mysql',
-        models: []
+        models: [User]
 });
 
 const RunTransaction = async (call: (transaction: Transaction) => {}): Promise<ActionResult> => {

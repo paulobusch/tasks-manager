@@ -27,9 +27,10 @@ export class UrlParser {
 
     private static tryCast(value: any): any {
         if (!value) return;
-        if (!isNaN(parseInt(value))) return parseInt(value);
-        if (['false', 'true'].indexOf(value) !== -1) return value === 'true';
-        if (new Date(value).toString() !== 'Invalid Date') return new Date(value);
-        return value.toString();
+        const decoded = decodeURI(value);
+        if (/[0-9]gi/.test(decoded)) return parseInt(decoded);
+        if (['false', 'true'].indexOf(decoded) !== -1) return decoded === 'true';
+        if (new Date(decoded).toString() !== 'Invalid Date') return new Date(decoded);
+        return decoded.toString();
     }
 }

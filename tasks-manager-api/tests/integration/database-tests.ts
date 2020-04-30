@@ -1,7 +1,5 @@
-import 'module-alias/register';
 import dotenv from 'dotenv'; dotenv.config({ path: '.env.test' });
-import { Db, RunTransaction } from '@database';
-import { NewId } from '@metadata/random';
+import { Db } from '../../src/database';
 
 export class DatabaseTests {
     public static async init() {
