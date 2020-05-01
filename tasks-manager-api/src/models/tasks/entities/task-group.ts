@@ -1,12 +1,12 @@
 import { Model, Table, Column, DataType, CreatedAt, UpdatedAt, DeletedAt, Index, ForeignKey } from "sequelize-typescript";
 import { User } from "@models/users/entities/user";
 
-@Table({ tableName: 'tasks_items' })
-export class TaskItem extends Model<TaskItem> {
+@Table({ tableName: 'tasks_groups' })
+export class TaskGroup extends Model<TaskGroup> {
     @Column({ primaryKey: true, type: DataType.STRING(8) })
     public id: string;
 
-    @Index('idx_tasks_items_name')
+    @Index('idx_tasks_groups_name')
     @Column({ unique: true, allowNull: false, type: DataType.STRING(200) })
     public name: string;
 

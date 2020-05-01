@@ -1,6 +1,6 @@
 import { Table, Model, Column, DataType, CreatedAt, UpdatedAt, DeletedAt, ForeignKey, HasOne, BelongsTo } from "sequelize-typescript";
-import { TaskItem } from "./task-item";
 import { User } from "@models/users/entities/user";
+import { TaskGroup } from "./task-group";
 
 @Table({ tableName: 'tasks' })
 export class Task extends Model<Task> {
@@ -10,9 +10,9 @@ export class Task extends Model<Task> {
     @Column({ allowNull: false, type: DataType.STRING(8) })
     public id_user: string;
     
-    @ForeignKey(() => TaskItem)
+    @ForeignKey(() => TaskGroup)
     @Column({ allowNull: false, type: DataType.STRING(8) })
-    public id_task_item: string;
+    public id_group: string;
     
     @Column({ allowNull: false })
     public start_time: Date;
@@ -32,8 +32,8 @@ export class Task extends Model<Task> {
     @Column({ type: DataType.STRING(8) })
     public id_user_deleted: string;
 
-    @BelongsTo(() => TaskItem)
-    public task_item: TaskItem;
+    @BelongsTo(() => TaskGroup)
+    public task_group: TaskGroup;
 
     @CreatedAt public created: Date;
     @UpdatedAt public updated: Date;

@@ -1,7 +1,7 @@
 import { IViewModel } from "@interfaces/action-view-model.interface";
 import { Attribute } from "@decorators/attribute";
-import { Task } from "../entities/task";
 import { Converter } from "@metadata/converter";
+import { Task } from "../entities/task";
 
 export class TaskList implements IViewModel {
     @Attribute() public id: string;

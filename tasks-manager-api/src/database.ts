@@ -3,7 +3,7 @@ import { Transaction } from 'sequelize/types';
 import { ActionResult } from '@results/action-result';
 import { EActionStatus } from '@enums/action-status.enum';
 import { User } from '@models/users/entities/user';
-import { TaskItem } from '@models/tasks/entities/task-item';
+import { TaskGroup } from '@models/tasks/entities/task-group';
 import { Task } from '@models/tasks/entities/task';
 
 const Db = new Sequelize({
@@ -13,7 +13,7 @@ const Db = new Sequelize({
         username: process.env.DB_USER,
         password: process.env.DB_PASS,
         dialect: 'mysql',
-        models: [User, Task, TaskItem]
+        models: [User, Task, TaskGroup]
 });
 
 const RunTransaction = async (call: (transaction: Transaction) => {}): Promise<ActionResult> => {
