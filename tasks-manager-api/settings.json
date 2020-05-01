@@ -4,7 +4,7 @@
         "input": "src\\routers",
         "files": {
             "get": ["query", "detail", "list"],
-            "post": ["create"],
+            "post": ["create", "auth"],
             "put": ["update"],
             "delete": ["delete"]
         },

@@ -33,7 +33,7 @@ class Application {
                 Object.assign(action, UrlParser.getQueryParams(request.url));
                 Object.assign(action, UrlParser.getDataParams(request.url, router.path));
                 Object.assign(action, request.body);
-                const context = new ActionContext({ request, response, db: Db });
+                const context = new ActionContext({ data: request.data, request, response, db: Db });
                 const result = await ActionHandler.run(action, context);
                 response.status(result.status);
                 response.json(result.serialize());
