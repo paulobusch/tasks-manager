@@ -16,7 +16,7 @@ export class UpdateTaskGroup extends Mutation {
 
     async consistent(): Promise<MutationResult> {
         const existsName = await TaskGroup.findOne({ where: { name: this.name, id: { [Op.not]: this.id } } });
-        if (existsName) return new MutationResult(EActionStatus.conflict, 'Task item with name already exists');
+        if (existsName) return new MutationResult(EActionStatus.conflict, 'Task group with name already exists');
         return new MutationResult(EActionStatus.success);
     }
     async execute(context: ActionContext): Promise<MutationResult> {

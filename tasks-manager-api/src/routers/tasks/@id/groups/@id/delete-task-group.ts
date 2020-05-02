@@ -17,12 +17,8 @@ export class DeleteTaskGroup extends Mutation {
         const query = { where: { id: this.id } };
         const taskGroup = await TaskGroup.findOne(query);
         if (!taskGroup) return new MutationResult(EActionStatus.notFound);
-        taskGroup.set({
-            deleted: new Date(),
-            id_user_deleted: context.data.id
-        });
-        const result = await taskGroup.save();
-        if (!result) return new MutationResult(EActionStatus.error);
+        taskGroup.set({ id_user_deleted: context.data.id });
+        await taskGroup.destroy();
         return new MutationResult(EActionStatus.success);
     }
 }
